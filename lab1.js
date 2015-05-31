@@ -59,6 +59,9 @@ function assert(expression, failureMessage) {
 
 //your code goes here
 
+assert('elephant' === 'monkey', 'This failed due to the monkey string not being the same as the elephant string.' );
+assert('monkey' > 'meerkat')
+
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
@@ -66,6 +69,34 @@ function assert(expression, failureMessage) {
 
 var sentence1 = 'More food please.';
 var sentence2 = 'Come over here so you can scratch my belly.';
+
+sentence1 = sentence1.split(" ");
+sentence2 = sentence2.split(" ");
+
+for (var i = 0; i < sentence1.length; i++) {
+  if (i === sentence1.length - 1){
+    sentence1[i] = 'chirp.';
+  } else {
+    sentence1[i] = 'chirp';
+  }
+}
+
+var i = 0;
+do { 
+  if (i === sentence2.length - 1){
+    sentence2[i] = 'chirp.';
+  } else {
+    sentence2[i] = 'chirp';
+  }
+  i++;
+} while (i < sentence2.length);
+ 
+
+sentence1 = sentence1.join(' ');
+sentence2 = sentence2.join(' ');
+
+console.log(sentence1);
+console.log(sentence2);
 
 /*
  TODO: 20 points
