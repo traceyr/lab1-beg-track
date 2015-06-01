@@ -59,45 +59,13 @@ function assert(expression, failureMessage) {
 
 //your code goes here
 
-assert('elephant' === 'monkey', 'This failed due to the monkey string not being the same as the elephant string.' );
-assert('monkey' > 'meerkat')
+assert('elephant' === 'monkey', 'This failed due to the monkey string not being the same as the elephant string.');
+assert('monkey' > 'meerkat');
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
 */
-
-var sentence1 = 'More food please.';
-var sentence2 = 'Come over here so you can scratch my belly.';
-
-sentence1 = sentence1.split(" ");
-sentence2 = sentence2.split(" ");
-
-for (var i = 0; i < sentence1.length; i++) {
-  if (i === sentence1.length - 1){
-    sentence1[i] = 'chirp.';
-  } else {
-    sentence1[i] = 'chirp';
-  }
-}
-
-var i = 0;
-do { 
-  if (i === sentence2.length - 1){
-    sentence2[i] = 'chirp.';
-  } else {
-    sentence2[i] = 'chirp';
-  }
-  i++;
-} while (i < sentence2.length);
- 
-
-sentence1 = sentence1.join(' ');
-sentence2 = sentence2.join(' ');
-
-console.log(sentence1);
-console.log(sentence2);
-
 /*
  TODO: 20 points
  Your goal is to replace the words in the above sentences with 'chirp' The
@@ -107,6 +75,35 @@ console.log(sentence2);
 */
 
 // your code goes here
+
+var sentence1 = 'More food please.';
+var sentence2 = 'Come over here so you can scratch my belly.';
+
+sentence1 = sentence1.split(' ');
+sentence2 = sentence2.split(' ');
+
+for (var i = 0; i < sentence1.length; i++) {
+  if (i === sentence1.length - 1) {
+    sentence1[i] = 'chirp.';
+  } else {
+    sentence1[i] = 'chirp';
+  }
+}
+
+var i = 0;
+do {
+  if (i === sentence2.length - 1) {
+    sentence2[i] = 'chirp.';
+  } else {
+    sentence2[i] = 'chirp';
+  }
+  i++;
+} while (i < sentence2.length);
+sentence1 = sentence1.join(' ');
+sentence2 = sentence2.join(' ');
+
+console.log(sentence1);
+console.log(sentence2);
 
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
 assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
@@ -125,6 +122,9 @@ var nextAnimal;
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
+var findArrValue = (Math.floor(Math.random() * (favoriteAnimals.length - 1)));
+nextAnimal = favoriteAnimals[findArrValue];
+console.log(nextAnimal);
 // your code goes here
 
 assert(nextAnimal, 'assign something to nextAnimal');
@@ -140,11 +140,11 @@ assert(nextAnimal, 'assign something to nextAnimal');
 // don't require quotes for the code to work. Remove the unnecessary quotes.
 
 var animalExhibitStats = {
-  'numberOpen': 13,
-  'number closed': 2,
-  'petting-zoo-open': true,
-  'mostPopular': 'Lucky the Emperor Penguin',
-  '2ndMostPopular': 'Dumbo the Depressed Donkey'
+  numberOpen: 13,
+  numberClosed: 2,
+  pettingZooOpen: true,
+  mostPopular: 'Lucky the Emperor Penguin',
+  secondMostPopular: 'Dumbo the Depressed Donkey'
 };
 
 /*
@@ -154,10 +154,10 @@ var animalExhibitStats = {
  notation with dot notation wherever possible.
 */
 
-assert(animalExhibitStats['numberOpen'] === 13, 'there should be 13 open exhibits');
-assert(animalExhibitStats['number closed'] === 2, 'there should be 2 closed exhibits');
-assert(animalExhibitStats['petting-zoo-open'], 'hey! =( i was promised meerkats!');
-assert(animalExhibitStats['2ndMostPopular'] === 'Dumbo the Depressed Donkey',
+assert(animalExhibitStats.numberOpen === 13, 'there should be 13 open exhibits');
+assert(animalExhibitStats.numberClosed === 2, 'there should be 2 closed exhibits');
+assert(animalExhibitStats.pettingZooOpen, 'hey! =( i was promised meerkats!');
+assert(animalExhibitStats.secondMostPopular  === 'Dumbo the Depressed Donkey',
   'Dumbo is supposed to be second place, as usual');
 
 // TODO: 4 points
@@ -165,7 +165,7 @@ assert(animalExhibitStats['2ndMostPopular'] === 'Dumbo the Depressed Donkey',
 // Use the above examples to guide you.
 
 // your assert goes here
-
+assert(animalExhibitStats.mostPopular  === 'Lucky the Emperor Penguin', 'Lucky is the best, because penquins are awesome!');
 /* ----------------- Code Style ----------------------------------------
  TODO: 10 points
  Now, we're going to use two tools: jshint and jscs, to check our code for
